@@ -1,4 +1,6 @@
-import { leftChevron, rightChevron } from "../data/sliderData";
+import leftChevron from "../assets/left-arrow.svg";
+import rightChevron from "../assets/right-arrow.svg";
+import "./Slider.css";
 
 const Slider = () => {
   return (
@@ -14,7 +16,7 @@ const Slider = () => {
         <button className="navigation-button prev-button">
           <img src={leftChevron} />
         </button>
-        <button className="navigation-button prev-button">
+        <button className="navigation-button next-button">
           <img src={rightChevron} />
         </button>
       </div>
