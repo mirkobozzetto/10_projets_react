@@ -8,6 +8,18 @@ import "./Slider.css";
 const Slider = () => {
   const [slideIndex, setSlideIndex] = useState(1);
 
+  const toggleImage = (indexPayload) => {
+    let newState;
+    if (indexPayload + slideIndex > sliderData.length) {
+      newState = 1;
+    } else if (indexPayload + slideIndex < 1) {
+      newState = sliderData.length;
+    } else {
+      newState = indexPayload + setSlideIndex;
+    }
+    setSlideIndex(newState);
+  };
+
   return (
     <>
       <p className="index-info">
