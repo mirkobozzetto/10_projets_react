@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import sliderData from "../data/sliderData";
 
 import leftChevron from "../assets/left-arrow.svg";
@@ -9,16 +9,21 @@ const Slider = () => {
   const [slideIndex, setSlideIndex] = useState(1);
 
   const toggleImage = (indexPayload) => {
-    let newState;
-    if (indexPayload + slideIndex > sliderData.length) {
-      newState = 1;
-    } else if (indexPayload + slideIndex < 1) {
-      newState = sliderData.length;
-    } else {
-      newState = indexPayload + slideIndex;
-    }
-    setSlideIndex(newState);
+    setSlideIndex((state) => {
+      if (indexPayload + state > sliderData.length) {
+        return 1;
+      } else if (indexPayload + state < 1) {
+        return sliderData.length;
+      } else {
+        return state + indexPayload;
+      }
+    });
   };
+
+  useEffect(() => {
+    const intervalID = setInterval(() => toggleImage(1), 2500);
+    return () => clearInterval(intervalID);
+  }, []);
 
   return (
     <>
