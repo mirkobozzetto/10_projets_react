@@ -18,14 +18,20 @@ const Slider = () => {
           {sliderData.find((obj) => obj.id === slideIndex).description}
         </p>
         <img
-          src={"../../public/images/"}
+          src={`../../public/images/img-${slideIndex}.jpg`}
           alt={"../data/sliderData.js"}
           className="slider-img"
         />
-        <button className="navigation-button prev-button">
+        <button
+          onClick={() => toggleImage(-1)}
+          className="navigation-button prev-button"
+        >
           <img src={leftChevron} />
         </button>
-        <button className="navigation-button next-button">
+        <button
+          onClick={() => toggleImage(1)}
+          className="navigation-button next-button"
+        >
           <img src={rightChevron} />
         </button>
       </div>
