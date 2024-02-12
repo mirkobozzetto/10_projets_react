@@ -15,7 +15,7 @@ const Slider = () => {
     } else if (indexPayload + slideIndex < 1) {
       newState = sliderData.length;
     } else {
-      newState = indexPayload + setSlideIndex;
+      newState = indexPayload + slideIndex;
     }
     setSlideIndex(newState);
   };
