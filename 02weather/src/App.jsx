@@ -1,4 +1,6 @@
+import { useEffect, useState } from "react";
 import loader from "./assets/loader.svg";
+import browser from "./assets/browser.svg";
 import "./App.css";
 const APIKEY = import.meta.env.WEATHER_API_KEY;
 
@@ -10,8 +12,6 @@ const App = () => {
     fetch(`http://api.airvisual.com/v2/nearest_city?key=${APIKEY}`)
       .then((response) => {
         console.log(response);
-        // 400 - 499 : Erreur clients
-        // 500 - 599 : Erreur serveur
         if (!response.ok)
           throw new Error(`Error ${response.status}, ${response.statusText}`);
 
